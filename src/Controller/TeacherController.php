@@ -7,17 +7,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TeacherController extends AbstractController
 {
-    /**
-     * @Route("/teacher/{name}", name="teacher_show")
-     */
+    #[Route('/teacher/{name}', name: 'app_teacher')]
+   
     public function showTeacher($name)
     {
-        return $this->render('teacher/show.html.twig', [ 'name' => $name, ] );
-           
-       
+        return $this->render('teacher/showTeacher.html.twig', [
+            'name' => $name,
+        ]);
     }
-    public function goToIndex()
+    #[Route('/redirecttostudent', name: 'redirect_to_student')]
+    public function RedirectToStudent()
     {
-        return $this->redirectToRoute('student_index');
+        return $this->redirectToRoute('app_student');
     }
     }
